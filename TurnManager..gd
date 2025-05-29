@@ -32,15 +32,15 @@ func end_turn():
 	elif turn_state == TurnState.ENEMIES:
 		turn_state = TurnState.PLAYER
 		for enemy in enemy_refs:
-			if not is_instance_valid(enemy):
-				break
-			if enemy.enemy_skip_turn:
-				enemy.enemy_skip_turn = false
-				break
-			for effect in enemy.effects:
-				effect.on_turn_end(enemy)
+		#	print()
+			if is_instance_valid(enemy):
+		#		break
+				if enemy.enemy_skip_turn:
+					enemy.enemy_skip_turn = false
+				for effect in enemy.effects:
+					effect.on_turn_end(enemy)
 			# Убрать истёкшие эффекты
-			enemy.effects = enemy.effects.filter(func(e): return not e.is_expired())
+				enemy.effects = enemy.effects.filter(func(e): return not e.is_expired())
 	
 	player_ref.update_stats()
 	start_turn()

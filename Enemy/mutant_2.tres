@@ -12,3 +12,4 @@ texture = ExtResource("3_ght73")
 max_hp = 10
 abilities = Array[ExtResource("1_68010")]([ExtResource("2_j4e4m")])
 is_boss = false
+maximum_ap = 5

@@ -7,10 +7,8 @@ func on_apply(target):
 
 func on_turn_start(target):
 	if stacks > 0:
-		print ("стаков шока: ", stacks)
 		target.enemy_skip_turn = true  # Или как у тебя реализован пропуск хода
 		stacks -= 1
-		
 		var msg = "⚡⚡⚡im in deep shock, i am SKIPING MY TURN⚡⚡⚡"
 		target.show_floating_text_near_character(msg)
 	if is_expired():
