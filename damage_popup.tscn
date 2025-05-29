@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://c0vwuj23vwulu"]
+
+[ext_resource type="Script" path="res://damage_popup.gd" id="1_steb4"]
+[ext_resource type="FontFile" uid="uid://duf0xf4g3nbj2" path="res://UI/FONTS/PublicPixel-rv0pA.ttf" id="2_hoavj"]
+
+[node name="DamagePopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_steb4")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.538213, 1, 0.66391, 1)
+theme_override_constants/shadow_offset_y = 5
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_hoavj")
+theme_override_font_sizes/font_size = 50
+text = "100"

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dwl77wtch1gn3"]
+
+[ext_resource type="Texture2D" uid="uid://daix5u1bgnrhm" path="res://effects/Pictures/shock.png" id="1_x6gm2"]
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_y3e1v"]
+
+[resource]
+script = ExtResource("1_y3e1v")
+name = "Shock Curse"
+cost = 2
+gcd = 1
+damage = 2
+pierce = 1
+effect_description = "stunning enemies for @stacks turn"
+is_offensive = true
+affects_gcd = true
+icon = ExtResource("1_x6gm2")
+undone_btn_dis = false
+stacks = 2

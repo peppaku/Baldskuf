@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://bsibbr6llfrf0"]
+
+[ext_resource type="Texture2D" uid="uid://dsul7ut02had1" path="res://player/Abilities/Icons/Fireball.png" id="1_n5amu"]
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_pouow"]
+
+[resource]
+script = ExtResource("1_pouow")
+name = "Fire Ball"
+cost = 3
+gcd = 7
+damage = 6
+pierce = 1
+effect_description = "Launch fire ball, dealing @damage damage"
+is_offensive = true
+affects_gcd = true
+icon = ExtResource("1_n5amu")
+undone_btn_dis = false
+stacks = 0

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://c1m025shviajp"]
+
+[ext_resource type="Texture2D" uid="uid://c0wvusu4e38xp" path="res://player/Abilities/Icons/Shield.png" id="1_6bqxr"]
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_fxcgq"]
+
+[resource]
+script = ExtResource("1_fxcgq")
+name = "Shield"
+cost = 1
+gcd = 3
+damage = 3
+pierce = 0
+effect_description = "Shield absorbs @damage damage before next your turn"
+is_offensive = false
+affects_gcd = false
+icon = ExtResource("1_6bqxr")
+undone_btn_dis = false
+stacks = 1

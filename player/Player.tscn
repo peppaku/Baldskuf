@@ -1,0 +1,121 @@
+[gd_scene load_steps=12 format=3 uid="uid://4jsl0ahwjcrr"]
+
+[ext_resource type="Texture2D" uid="uid://n2pgkofvbvtf" path="res://player/MC - bald skuf Transparented.png" id="1_8cke4"]
+[ext_resource type="Script" path="res://player/player_body.gd" id="1_rkndb"]
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="2_k7a03"]
+[ext_resource type="Resource" uid="uid://bsibbr6llfrf0" path="res://player/Abilities/fireball.tres" id="3_fsiht"]
+[ext_resource type="Resource" uid="uid://dokd2qer4a1r0" path="res://player/Abilities/ice_spear.tres" id="4_20vad"]
+[ext_resource type="Resource" uid="uid://dwl77wtch1gn3" path="res://player/Abilities/shock_curse.tres" id="5_xnw5r"]
+[ext_resource type="Resource" uid="uid://c1m025shviajp" path="res://player/Abilities/abosrb_shield.tres" id="6_0p4my"]
+
+[sub_resource type="Animation" id="Animation_x8bdu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(55, 93)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_i36db"]
+resource_name = "hit"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1e-05),
+"update": 0,
+"values": [0.0, 6.28319, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1e-05),
+"update": 0,
+"values": [Vector2(55, 93), Vector2(63, -180), Vector2(55, 93)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.233333, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1e-05),
+"update": 0,
+"values": [Vector2(0.5, 0.5), Vector2(0.5, 0.259549), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3ehr"]
+_data = {
+"RESET": SubResource("Animation_x8bdu"),
+"hit": SubResource("Animation_i36db")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7yweu"]
+size = Vector2(174, 362)
+
+[node name="Player" type="Node2D"]
+script = ExtResource("1_rkndb")
+abilities = Array[ExtResource("2_k7a03")]([ExtResource("3_fsiht"), ExtResource("4_20vad"), ExtResource("5_xnw5r"), ExtResource("6_0p4my")])
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(55, 93)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_8cke4")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Sprite2D")
+libraries = {
+"": SubResource("AnimationLibrary_j3ehr")
+}
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(40, 151)
+shape = SubResource("RectangleShape2D_7yweu")
+
+[node name="SpellInfoPosition" type="Marker2D" parent="."]
+position = Vector2(-195, -1)

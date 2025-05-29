@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsm2md4lqvqhb"]
+
+[ext_resource type="Texture2D" uid="uid://gv3x46imip8h" path="res://References/mutants/mutant_shaman1.png" id="1_ljo5l"]
+
+[sub_resource type="SkeletonModificationStack2D" id="SkeletonModificationStack2D_dagic"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ljo5l")
+
+[node name="Skeleton2D" type="Skeleton2D" parent="Sprite2D"]
+modification_stack = SubResource("SkeletonModificationStack2D_dagic")
+
+[node name="Bone2D" type="Bone2D" parent="Sprite2D/Skeleton2D"]
+rest = Transform2D(1, 0, 0, 1, 0, 0)
+
+[node name="Bone2D2" type="Bone2D" parent="Sprite2D/Skeleton2D/Bone2D"]
+position = Vector2(-207, -131)
+rest = Transform2D(1, 0, 0, 1, -207, -131)
+
+[node name="Bone2D" type="Bone2D" parent="Sprite2D/Skeleton2D/Bone2D/Bone2D2"]
+position = Vector2(-103, 133)
+rest = Transform2D(1, 0, 0, 1, -103, 133)
+
+[node name="Bone2D" type="Bone2D" parent="Sprite2D/Skeleton2D/Bone2D/Bone2D2/Bone2D"]
+position = Vector2(-30, -237)
+rest = Transform2D(1, 0, 0, 1, -30, -237)
+
+[node name="Bone2D" type="Bone2D" parent="Sprite2D/Skeleton2D/Bone2D"]
+position = Vector2(169, -126)
+rest = Transform2D(1, 0, 0, 1, 169, -126)
+
+[node name="Bone2D" type="Bone2D" parent="Sprite2D/Skeleton2D/Bone2D/Bone2D"]
+position = Vector2(189, 179)
+rest = Transform2D(1, 0, 0, 1, 189, 179)
+
+[node name="Polygon2D" type="Polygon2D" parent="Sprite2D"]
+position = Vector2(18, -7)
+color = Color(1, 1, 1, 0)
+skeleton = NodePath("../Skeleton2D")
+polygon = PackedVector2Array(459, 258, 556, 34, 198, -202, 135, -76, 220, 169)
+
+[node name="Polygon2D2" type="Polygon2D" parent="Sprite2D"]
+color = Color(1, 1, 1, 0)
+polygon = PackedVector2Array(149, -134, 216, 93, -210, 122, -228, -190, -40, -40)

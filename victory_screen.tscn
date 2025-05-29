@@ -1,0 +1,39 @@
+[gd_scene load_steps=3 format=3 uid="uid://dv4nxl5ikle8u"]
+
+[ext_resource type="Texture2D" uid="uid://dticepw6bqwtm" path="res://References/mutants/mutant_king.png" id="1_kabtw"]
+[ext_resource type="Script" path="res://victory_screen.gd" id="1_xy0ii"]
+
+[node name="VictoryScreen" type="CanvasLayer"]
+script = ExtResource("1_xy0ii")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 1953.0
+offset_bottom = 1104.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 414.0
+offset_top = 576.0
+offset_right = 1586.0
+offset_bottom = 909.0
+theme_override_font_sizes/font_size = 55
+text = "!!New Game+!!"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 458.0
+offset_top = 356.0
+offset_right = 1754.0
+offset_bottom = 476.0
+text = "Ты победил мега босса, молодец!!!
+Новые враги, способности. экономика будут в следующих выпусках игры.
+Ожидаю фидбека на страница https://peppaku.itch.io/tbg-cdap"
+
+[node name="MutantKing" type="Sprite2D" parent="ColorRect/Label"]
+position = Vector2(455, -192)
+scale = Vector2(0.318115, 0.334717)
+texture = ExtResource("1_kabtw")
+flip_v = true

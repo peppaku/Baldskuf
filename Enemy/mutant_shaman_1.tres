@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=6 format=3 uid="uid://fagcqm8bfjvg"]
+
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_kku6p"]
+[ext_resource type="Resource" uid="uid://c373np0qm1wup" path="res://player/Abilities/punch.tres" id="2_u37d6"]
+[ext_resource type="Script" path="res://Enemy/EnemyType.gd" id="3_atdgp"]
+[ext_resource type="Resource" uid="uid://bsibbr6llfrf0" path="res://player/Abilities/fireball.tres" id="3_p7gue"]
+[ext_resource type="Texture2D" uid="uid://gv3x46imip8h" path="res://References/mutants/mutant_shaman1.png" id="5_mud7g"]
+
+[resource]
+script = ExtResource("3_atdgp")
+name = "mutant_sha2"
+texture = ExtResource("5_mud7g")
+max_hp = 15
+abilities = Array[ExtResource("1_kku6p")]([ExtResource("2_u37d6"), ExtResource("3_p7gue")])
+is_boss = false
+maximum_ap = 5

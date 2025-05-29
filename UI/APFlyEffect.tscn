@@ -1,0 +1,32 @@
+[gd_scene load_steps=6 format=3 uid="uid://dlduu0ytrowxl"]
+
+[ext_resource type="Shader" path="res://UI/APFlyEffect.gdshader" id="1_1a3at"]
+[ext_resource type="Script" path="res://UI/ap_fly_effect.gd" id="1_76a2p"]
+[ext_resource type="Texture2D" uid="uid://c2i6v1adbhdpe" path="res://UI/empty_texture.png" id="3_a5wqd"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kdggt"]
+shader = ExtResource("1_1a3at")
+
+[sub_resource type="Gradient" id="Gradient_wwmjn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 0)
+
+[node name="ApFlyEffect" type="Node2D"]
+position = Vector2(242, 197)
+script = ExtResource("1_76a2p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_kdggt")
+scale = Vector2(0.00511664, 0.00776256)
+texture = ExtResource("3_a5wqd")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+amount = 55
+lifetime = 0.7
+direction = Vector2(0, 1)
+spread = 88.0
+initial_velocity_min = 30.0
+initial_velocity_max = 40.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(0.919087, 0.876613, 0.467221, 1)
+color_ramp = SubResource("Gradient_wwmjn")

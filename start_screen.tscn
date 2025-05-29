@@ -1,0 +1,47 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi1nhjguutum1"]
+
+[ext_resource type="Script" path="res://start_scene.gd" id="1_44af6"]
+[ext_resource type="Texture2D" uid="uid://dticepw6bqwtm" path="res://References/mutants/mutant_king.png" id="2_7axax"]
+
+[node name="StartScene" type="CanvasLayer"]
+script = ExtResource("1_44af6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -10.0
+offset_top = -13.0
+offset_right = 1948.0
+offset_bottom = 1096.0
+color = Color(0, 0, 0, 1)
+
+[node name="Button" type="Button" parent="ColorRect"]
+layout_mode = 0
+offset_left = 711.0
+offset_top = 765.0
+offset_right = 1230.0
+offset_bottom = 983.0
+text = "START"
+
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 0
+offset_left = 382.0
+offset_top = 128.0
+offset_right = 1678.0
+offset_bottom = 631.0
+text = "ЧТО БЫ ПОБЕДИТЬ НАДО УБИТЬ БОССА (Большой шар с короной) ->
+
+
+
+В игре реализовано УНИКАЛЬНЕЙШАЯ система глобал кул дауна:
+Некоторые способности могут быть использовано только когда GCD равен
+нулю -> \"GCD ⏳: 0\" это можно глянуть ниже и левее главного героя скуфа
+
+GCD Уменьшается от потраченных AP (очков действий, ACTION POINTS). Тратит их
+не только главный герой, но и противники.
+
+Более подробную информацию о затратах GCD, AP и прочего можно узнать если навести
+курсор на иконку способности"
+
+[node name="MutantKing" type="Sprite2D" parent="ColorRect/Label"]
+position = Vector2(985, 13)
+scale = Vector2(0.0849608, 0.0849608)
+texture = ExtResource("2_7axax")

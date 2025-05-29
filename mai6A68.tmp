@@ -1,0 +1,45 @@
+[gd_scene load_steps=13 format=3 uid="uid://5q64ajsslrrh"]
+
+[ext_resource type="Script" path="res://battle_scene.gd" id="1_gv672"]
+[ext_resource type="Texture2D" uid="uid://bmhqi2v7yxryp" path="res://References/mutants/BG Chamber.png" id="1_rt2sr"]
+[ext_resource type="Script" path="res://Enemy/EnemyType.gd" id="2_46btn"]
+[ext_resource type="Resource" uid="uid://cixbf27l2f5kh" path="res://Enemy/mutant_1.tres" id="3_l2jeg"]
+[ext_resource type="Resource" uid="uid://diwqsgf7mc40x" path="res://Enemy/mutant_2.tres" id="4_q40bt"]
+[ext_resource type="PackedScene" uid="uid://4jsl0ahwjcrr" path="res://player/Player.tscn" id="5_ftaww"]
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="7_inyed"]
+[ext_resource type="PackedScene" uid="uid://df4bb58ofdy5x" path="res://BattleUI.tscn" id="7_xpr7g"]
+[ext_resource type="Resource" uid="uid://bsibbr6llfrf0" path="res://player/Abilities/fireball.tres" id="8_6ehst"]
+[ext_resource type="Resource" uid="uid://dokd2qer4a1r0" path="res://player/Abilities/ice_spear.tres" id="9_4bts0"]
+[ext_resource type="Resource" uid="uid://dwl77wtch1gn3" path="res://player/Abilities/shock_curse.tres" id="10_g88rp"]
+[ext_resource type="Resource" uid="uid://c373np0qm1wup" path="res://player/Abilities/punch.tres" id="11_sssw8"]
+
+[node name="main scene" type="Node2D" groups=["Enemies"]]
+
+[node name="Battle Scene" type="Node2D" parent="."]
+script = ExtResource("1_gv672")
+available_enemy_types = Array[ExtResource("2_46btn")]([ExtResource("3_l2jeg"), ExtResource("4_q40bt")])
+
+[node name="BgChamber" type="Sprite2D" parent="Battle Scene"]
+position = Vector2(976, 608)
+scale = Vector2(1.27551, 1.33789)
+texture = ExtResource("1_rt2sr")
+metadata/_edit_lock_ = true
+
+[node name="Player" parent="Battle Scene" instance=ExtResource("5_ftaww")]
+position = Vector2(871, 947)
+abilities = Array[ExtResource("7_inyed")]([ExtResource("8_6ehst"), ExtResource("9_4bts0"), ExtResource("10_g88rp"), ExtResource("11_sssw8")])
+
+[node name="EnemyAnchor1" type="Marker2D" parent="Battle Scene"]
+position = Vector2(364, 629)
+
+[node name="EnemyAnchor2" type="Marker2D" parent="Battle Scene"]
+position = Vector2(942, 494)
+
+[node name="EnemyAnchor3" type="Marker2D" parent="Battle Scene"]
+position = Vector2(1475, 619)
+
+[node name="EnemiesRoot" type="Node2D" parent="Battle Scene"]
+
+[node name="BattleUI" parent="Battle Scene" instance=ExtResource("7_xpr7g")]
+
+[node name="UI here" type="Node2D" parent="."]

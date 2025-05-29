@@ -1,0 +1,73 @@
+[gd_scene load_steps=3 format=3 uid="uid://df4bb58ofdy5x"]
+
+[ext_resource type="Script" path="res://battle_ui.gd" id="1_lw2mf"]
+[ext_resource type="FontFile" uid="uid://duf0xf4g3nbj2" path="res://UI/FONTS/PublicPixel-rv0pA.ttf" id="3_gui6s"]
+
+[node name="BattleUI" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_lw2mf")
+
+[node name="PlayerStatusPanel" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 685.0
+offset_top = 999.0
+offset_right = 993.0
+offset_bottom = 1136.0
+
+[node name="HP" type="Label" parent="PlayerStatusPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gui6s")
+text = "❤️❤️❤️❤️❤️❤️❤️❤️"
+
+[node name="Action Points" type="Label" parent="PlayerStatusPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gui6s")
+text = "💎💎💎💎💎"
+
+[node name="Global CD" type="Label" parent="PlayerStatusPanel"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_gui6s")
+text = "⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳⏳"
+
+[node name="HP_Bar" type="HBoxContainer" parent="PlayerStatusPanel"]
+custom_minimum_size = Vector2(2, 24)
+layout_mode = 2
+
+[node name="AP_Bar" type="HBoxContainer" parent="PlayerStatusPanel"]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+
+[node name="GCD_Bar" type="HBoxContainer" parent="PlayerStatusPanel"]
+layout_mode = 2
+
+[node name="AbilityPanel" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 5.0
+offset_top = 1011.0
+offset_right = 69.0
+offset_bottom = 1075.0
+
+[node name="EndTurnButton" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1775.0
+offset_top = 1004.0
+offset_right = 1906.0
+offset_bottom = 1073.0
+text = "END TURN"
+
+[node name="NextRoom" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1776.0
+offset_top = 7.0
+offset_right = 1913.0
+offset_bottom = 102.0
+text = "Next Room"
+
+[node name="BattleCount" type="Label" parent="."]
+layout_mode = 0
+offset_left = 728.0
+offset_right = 888.0
+offset_bottom = 16.0
+text = "2123123123"

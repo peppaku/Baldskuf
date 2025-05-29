@@ -1,0 +1,143 @@
+[gd_scene load_steps=8 format=3 uid="uid://c7l8e2qjd81q7"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_j3ee3"]
+[ext_resource type="Texture2D" uid="uid://4moktsu3bcqp" path="res://References/mutants/mutant3.png" id="2_stdy3"]
+[ext_resource type="FontFile" uid="uid://duf0xf4g3nbj2" path="res://UI/FONTS/PublicPixel-rv0pA.ttf" id="3_363m2"]
+
+[sub_resource type="Animation" id="Animation_sohji"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_2rt76"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.815, 0.178984), Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, -6.28319, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.166667, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-50, 386.36), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hq0h8"]
+_data = {
+"RESET": SubResource("Animation_sohji"),
+"hit": SubResource("Animation_2rt76")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4rei"]
+size = Vector2(944, 1026)
+
+[node name="Enemy" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_j3ee3")
+
+[node name="HP_bar" type="TextureProgressBar" parent="."]
+offset_left = -20.0
+offset_top = -544.0
+offset_right = 20.0
+offset_bottom = -504.0
+max_value = 10.0
+value = 4.0
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_stdy3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D"]
+libraries = {
+"": SubResource("AnimationLibrary_hq0h8")
+}
+
+[node name="Name" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_363m2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(6, 2)
+shape = SubResource("RectangleShape2D_a4rei")
+
+[node name="HealthLabel" type="Label" parent="."]
+offset_left = -284.0
+offset_top = -542.0
+offset_right = 283.0
+offset_bottom = -431.0
+theme_override_fonts/font = ExtResource("3_363m2")
+theme_override_font_sizes/font_size = 81
+text = "TEXT HP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WaitBeforeHitTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SpellInfoPosition" type="Marker2D" parent="."]
+position = Vector2(0, -610)
+
+[connection signal="enemy_selected" from="." to="." method="_on_enemy_selected"]

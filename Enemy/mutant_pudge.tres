@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=6 format=3 uid="uid://rkntofntho2f"]
+
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_7nbe0"]
+[ext_resource type="Resource" uid="uid://c373np0qm1wup" path="res://player/Abilities/punch.tres" id="2_nv8er"]
+[ext_resource type="Script" path="res://Enemy/EnemyType.gd" id="2_s2va6"]
+[ext_resource type="Resource" uid="uid://c1m025shviajp" path="res://player/Abilities/abosrb_shield.tres" id="3_1asv7"]
+[ext_resource type="Texture2D" uid="uid://4moktsu3bcqp" path="res://References/mutants/mutant3.png" id="4_5echx"]
+
+[resource]
+script = ExtResource("2_s2va6")
+name = "pidge"
+texture = ExtResource("4_5echx")
+max_hp = 10
+abilities = Array[ExtResource("1_7nbe0")]([ExtResource("2_nv8er"), ExtResource("3_1asv7")])
+is_boss = false
+maximum_ap = 5

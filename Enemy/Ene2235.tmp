@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7l8e2qjd81q7"]
+
+[ext_resource type="Script" path="res://Enemy/enemy.gd" id="1_j3ee3"]
+[ext_resource type="Texture2D" uid="uid://4moktsu3bcqp" path="res://References/mutants/mutant3.png" id="2_stdy3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a4rei"]
+size = Vector2(444, 444)
+
+[node name="Enemy" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_j3ee3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_stdy3")
+
+[node name="HP_bar" type="TextureProgressBar" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_a4rei")
+
+[connection signal="enemy_selected" from="." to="." method="_on_enemy_selected"]

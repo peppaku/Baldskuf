@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="BaldezhniySkuf"
+config/version="2"
+run/main_scene="res://start_screen.tscn"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://player/ICO.png"
+
+[autoload]
+
+TurnManager="*res://TurnManager..gd"
+MousePopup="*res://MousePopupManager.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/stretch/mode="viewport"
+
+[global_group]
+
+Enemies=""
+
+[gui]
+
+timers/tooltip_delay_sec=0.1
+theme/custom_font="res://UI/FONTS/PublicPixel-rv0pA.ttf"

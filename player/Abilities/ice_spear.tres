@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=3 format=3 uid="uid://dokd2qer4a1r0"]
+
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_me6si"]
+[ext_resource type="Texture2D" uid="uid://27k0m0vcumh4" path="res://player/Abilities/Icons/Ice Spear.png" id="1_podyo"]
+
+[resource]
+script = ExtResource("1_me6si")
+name = "Ice Spear"
+cost = 3
+gcd = 3
+damage = 1
+pierce = 0
+effect_description = "Freezes the enemy, reducing damage by half on @stacks turns"
+is_offensive = true
+affects_gcd = true
+icon = ExtResource("1_podyo")
+undone_btn_dis = false
+stacks = 3

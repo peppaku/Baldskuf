@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=7 format=3 uid="uid://c1bxtulxox02e"]
+
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_ly5tf"]
+[ext_resource type="Resource" uid="uid://c373np0qm1wup" path="res://player/Abilities/punch.tres" id="2_g1y5f"]
+[ext_resource type="Script" path="res://Enemy/EnemyType.gd" id="3_4rr0a"]
+[ext_resource type="Texture2D" uid="uid://27k0m0vcumh4" path="res://player/Abilities/Icons/Ice Spear.png" id="3_ll1r1"]
+[ext_resource type="Texture2D" uid="uid://bm6ovcd834hdb" path="res://References/mutants/mutant_shaman2.png" id="5_6j7im"]
+
+[sub_resource type="Resource" id="Resource_g4vws"]
+script = ExtResource("1_ly5tf")
+name = "Ice Spear"
+cost = 3
+gcd = 20
+damage = 1
+pierce = 0
+effect_description = "Freezes the enemy, reducing damage by half on @stacks turns"
+is_offensive = true
+affects_gcd = true
+icon = ExtResource("3_ll1r1")
+undone_btn_dis = false
+stacks = 2
+
+[resource]
+script = ExtResource("3_4rr0a")
+name = "mutant_1"
+texture = ExtResource("5_6j7im")
+max_hp = 10
+abilities = Array[ExtResource("1_ly5tf")]([ExtResource("2_g1y5f"), SubResource("Resource_g4vws")])
+is_boss = false
+maximum_ap = 5

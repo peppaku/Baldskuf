@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="EnemyType" load_steps=5 format=3 uid="uid://b1og1vkqq3rmk"]
+
+[ext_resource type="Script" path="res://player/Abilities/Ability.gd" id="1_635yf"]
+[ext_resource type="Resource" uid="uid://c373np0qm1wup" path="res://player/Abilities/punch.tres" id="2_byq3w"]
+[ext_resource type="Script" path="res://Enemy/EnemyType.gd" id="3_dmmwv"]
+[ext_resource type="Texture2D" uid="uid://dticepw6bqwtm" path="res://References/mutants/mutant_king.png" id="4_eibyx"]
+
+[resource]
+script = ExtResource("3_dmmwv")
+name = "mutant_boss"
+texture = ExtResource("4_eibyx")
+max_hp = 40
+abilities = Array[ExtResource("1_635yf")]([ExtResource("2_byq3w")])
+is_boss = true
+maximum_ap = 5
